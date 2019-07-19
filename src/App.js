@@ -10,7 +10,7 @@ import AddAuthor from './components/AddAuthor';
 // Apollo Client Settings
 
 const client = new ApolloClient({
-  uri: 'http://localhost:4000/graphql'
+  uri: 'http://app-99078178-d7ca-4ac8-85c8-b1916f335575.cleverapps.io/graphql'
 });
 
 
