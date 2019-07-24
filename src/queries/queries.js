@@ -72,5 +72,13 @@ mutation ($name: String!, $age: String!) {
     }
 }
 `
+const addProductMutation = gql`
+mutation ($nombre: String!, $precio: Number!, $categoria: String!, $plan: String!, $modalidad: String!, $canal: String!) {
+    addProduct(nombre:$nombre, precio:$precio, categoria:$categoria, plan:$plan, modalidad: $modalidad, canal:$canal){
+        name
+        id
+    }
+}
+`
 
-export {getAuthorsQuery, getBooksQuery, addBookMutation, getBookQuery, addAuthorMutation, getProductQuery, getProductsQuery};
+export {getAuthorsQuery, getBooksQuery, addBookMutation, getBookQuery, addAuthorMutation, getProductQuery, getProductsQuery, addProductMutation};

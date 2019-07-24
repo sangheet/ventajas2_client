@@ -71,7 +71,7 @@ form {
   bottom: 0;
   width: 400px;
   border-radius: 10px;
-  display: none;
+
 }
 form .field{
   display: grid;

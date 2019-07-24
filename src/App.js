@@ -4,8 +4,7 @@ import {ApolloProvider} from "react-apollo";
 
 // Components
 import ProductList from './components/ProductList';
-import BookList from './components/BookList';
-import AddBook from './components/AddBook';
+import AddProduct from './components/AddProduct';
 import AddAuthor from './components/AddAuthor';
 
 // Apollo Client Settings
@@ -24,7 +23,7 @@ function App() {
       <div id="main">
       <h1>Productos / Ventajas 2</h1>
       <ProductList />
-      <AddBook />
+      <AddProduct />
       <AddAuthor />
       </div>
     </ApolloProvider>
