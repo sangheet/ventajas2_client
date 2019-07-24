@@ -31,6 +31,23 @@ code {
   cursor: pointer;
   color: #880E4F;
 }
+.table{
+  border: 2px solid #000;
+  display: inline-block;
+  width: 90%;
+  margin-top: 2px;
+  padding: 5px 5px 5px 15px;
+  border-radius: 20px;
+}
+.table:hover{
+  border: 2px solid #000;
+  display: inline-block;
+  width: 90%;
+  margin-top: 2px;
+  background: #444;
+  color: white;
+  transition: all 0.5s;
+}
 
 
 
@@ -50,10 +67,11 @@ form {
   background: #fff;
   padding: 20px;
   position: fixed;
-  left: 0;
+  left: 30%;
   bottom: 0;
   width: 400px;
   border-radius: 10px;
+  display: none;
 }
 form .field{
   display: grid;
@@ -75,7 +93,7 @@ form select, form input{
 form button{
   color: #fff;
   font-size: 2em;
-  background: #AD1457;
+  background: #880E4F;
   border: 0;
   padding: 0 10px;
   border-radius: 50%;
@@ -98,9 +116,10 @@ form button{
   background: #c0bebe;
   padding: 20px;
   position: fixed;
-  left: 40% !important;
+  left: 60% !important;
   bottom: 0;
   width: 400px;
+  display: none;
 }
 
 #book-details{
@@ -109,10 +128,23 @@ form button{
   right: 0;
   width: 40%;
   height: 100%;
-  background: #AD1457;
+  background: #f5aa09;
   padding: 30px;
   overflow: auto;
   box-shadow: -2px 3px 5px rgba(0,0,0,0.3);
   box-sizing: border-box;
-  color: #fff;
+  color: #2e2c2c;
+}
+#product-details{
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 40%;
+  height: 100%;
+  background: #f5aa09;
+  padding: 30px;
+  overflow: auto;
+  box-shadow: -2px 3px 5px rgba(0,0,0,0.3);
+  box-sizing: border-box;
+  color: #2e2c2c;
 }

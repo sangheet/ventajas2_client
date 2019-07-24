@@ -43,6 +43,26 @@ const getBookQuery = gql`
         }
     }
 `
+const getProductQuery = gql`
+    query($id: ID){
+        product(id: $id){
+            id
+            nombre
+            precio
+            categoria
+            plan
+            modalidad
+            canal
+        }
+    }
+`
+const getProductsQuery = gql`
+{
+    products{
+        nombre
+        id
+    }
+}`
 
 const addAuthorMutation = gql`
 mutation ($name: String!, $age: String!) {
@@ -53,4 +73,4 @@ mutation ($name: String!, $age: String!) {
 }
 `
 
-export {getAuthorsQuery, getBooksQuery, addBookMutation, getBookQuery, addAuthorMutation};
+export {getAuthorsQuery, getBooksQuery, addBookMutation, getBookQuery, addAuthorMutation, getProductQuery, getProductsQuery};

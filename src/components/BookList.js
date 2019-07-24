@@ -19,7 +19,7 @@ class BookList extends Component {
         } else {
             return data.books.map(book => {
                 return(
-                    <li key={ book.id } onClick={ (e) => this.setState({ selected: book.id }) }>{ book.name }</li>
+                    <tr className="table" key={ book.id } onClick={ (e) => this.setState({ selected: book.id }) }>{ book.name }</tr>
                 );
             })
         }
@@ -27,9 +27,9 @@ class BookList extends Component {
     render(){
         return(
             <div>
-                <ul id="book-list">
+                <table id="book-list">
                     { this.displayBooks() }
-                </ul>
+                </table>
                 <BookDetails bookId={ this.state.selected } />
             </div>
         );
