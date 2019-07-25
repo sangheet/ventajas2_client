@@ -3,17 +3,17 @@ import { graphql } from 'react-apollo';
 import { getProductQuery } from '../queries/queries';
 
 class ProductDetails extends Component {
-    displayProductDetails(){
+    displayProductsDetails(){
         const { product } = this.props.data;
         if(product){
             return(
                 <div>
-                    <h2>{ product.nombre }</h2>
-                    <p>{ product.precio }</p>
-                    <p>{ product.categoria }</p>
-                    <p>{ product.plan }</p>
-                    <p>{ product.modalidad }</p>
-                    <p>{ product.canal}</p>
+                    <h2>Producto:  { product.nombre }</h2>
+                    <p>Precio:  { product.precio }</p>
+                    <p>Plan:    { product.plan }</p>
+                    <p>Modalidad:   { product.modalidad }</p>
+                    <p>Canal:   { product.canal}</p>
+                    <p>Categoría: { product.categoryId.name}</p>
                 </div>
             );
         } else {
@@ -23,7 +23,7 @@ class ProductDetails extends Component {
     render(){
         return(
             <div id="product-details">
-                { this.displayProductDetails() }
+                { this.displayProductsDetails() }
             </div>
         );
     }

@@ -7,6 +7,13 @@ const getBooksQuery = gql`
         id
     }
 }`
+const getCategoriesQuery = gql`
+{
+    categories{
+        name
+        id
+    }
+}`
 
 const getAuthorsQuery = gql`
 {
@@ -20,6 +27,14 @@ const addBookMutation = gql`
 mutation ($name: String!, $genre: String!, $authorId: ID!) {
     addBook(name:$name, genre:$genre, authorId:$authorId){
         name
+        id
+    }
+}
+`
+const addProductMutation = gql`
+mutation ($nombre: String!, $precio: String!, $categoryId: ID!, $plan: String!, $modalidad: String!, $canal: String!) {
+    addProduct(nombre:$nombre, precio:$precio, categoryId:$categoryId, plan:$plan, modalidad: $modalidad, canal:$canal){
+        nombre
         id
     }
 }
@@ -49,10 +64,25 @@ const getProductQuery = gql`
             id
             nombre
             precio
-            categoria
+            categoryId{
+                id
+                name
+                products{
+                    nombre 
+                    id
+                }
+                }
             plan
             modalidad
             canal
+        }
+    }
+`
+const getCategoryQuery = gql`
+    query($id: ID){
+        category(id: $id){
+            id
+            name
         }
     }
 `
@@ -72,13 +102,13 @@ mutation ($name: String!, $age: String!) {
     }
 }
 `
-const addProductMutation = gql`
-mutation ($nombre: String!, $precio: Number!, $categoria: String!, $plan: String!, $modalidad: String!, $canal: String!) {
-    addProduct(nombre:$nombre, precio:$precio, categoria:$categoria, plan:$plan, modalidad: $modalidad, canal:$canal){
+
+const addCategoryMutation = gql`
+mutation ($name: String!) {
+    addCategory(name:$name){
         name
-        id
     }
 }
 `
 
-export {getAuthorsQuery, getBooksQuery, addBookMutation, getBookQuery, addAuthorMutation, getProductQuery, getProductsQuery, addProductMutation};
+export {getAuthorsQuery, getBooksQuery, addBookMutation, getBookQuery, addAuthorMutation, getProductQuery, getProductsQuery, addProductMutation, getCategoriesQuery, getCategoryQuery, addCategoryMutation};

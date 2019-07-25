@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { graphql, compose } from 'react-apollo';
-import { addProductMutation, getProductsQuery } from '../queries/queries';
+import { addProductMutation, getProductsQuery, getCategoriesQuery } from '../queries/queries';
 
 class AddProduct extends Component {
     constructor(props){
@@ -8,20 +8,30 @@ class AddProduct extends Component {
         this.state = {
             nombre: '',
             precio: '',
-            categoria: '',
+            categoryId: '',
             plan: '',
             modalidad: '',
             canal: ''
         };
     }
+    displayCategories(){
+        var data = this.props.getCategoriesQuery;
+        if(data.loading){
+            return( <option disabled>Loading Categories</option> );
+        } else {
+            return data.categories.map(category => {
+                return( <option key={ category.id } value={category.id}>{ category.name }</option> );
+            });
+        }
+    }
+   
     submitForm(e){
         e.preventDefault()
-        // use the addBookMutation
         this.props.addProductMutation({
             variables: {
                 nombre: this.state.nombre,
                 precio: this.state.precio,
-                categoria: this.state.categoria,
+                categoryId: this.state.categoryId,
                 plan: this.state.plan,
                 modalidad: this.state.modalidad,
                 canal: this.state.canal
@@ -31,7 +41,7 @@ class AddProduct extends Component {
     }
     render(){
         return(
-            <form id="add-book" onSubmit={ this.submitForm.bind(this) } >
+            <form name="myForm" id="add-book" onSubmit={ this.submitForm.bind(this) } >
                 <div className="field">
                     <label>Nombre del producto:</label>
                     <input type="text" onChange={ (e) => this.setState({ nombre: e.target.value }) } />
@@ -41,8 +51,11 @@ class AddProduct extends Component {
                     <input type="text" onChange={ (e) => this.setState({ precio: e.target.value }) } />
                 </div>
                 <div className="field">
-                    <label>categoria:</label>
-                    <input type="text" onChange={ (e) => this.setState({ categoria: e.target.value }) } />
+                    <label>Categoría:</label>
+                    <select onChange={ (e) => this.setState({ categoryId: e.target.value }) } >
+                        <option>Seleccione Categoría</option>
+                        { this.displayCategories() }
+                    </select>
                 </div>
                 <div className="field">
                     <label>Plan:</label>
@@ -56,6 +69,7 @@ class AddProduct extends Component {
                     <label>canal:</label>
                     <input type="text" onChange={ (e) => this.setState({ canal: e.target.value }) } />
                 </div>
+               
                 <button>+</button>
             </form>
         );
@@ -63,5 +77,6 @@ class AddProduct extends Component {
 }
 
 export default compose(
+    graphql(getCategoriesQuery, { name: "getCategoriesQuery" }),
     graphql(addProductMutation, { name: "addProductMutation" })
 )(AddProduct);

@@ -12,14 +12,16 @@ class ProductList extends Component {
             selected: null
         }
     }
-    displayProducts(){
+    displayProduct(){
         var data = this.props.data;
         if(data.loading){
-            return( <div>Loading products...</div> );
+            return( <div>Loading Products...</div> );
         } else {
             return data.products.map(product => {
                 return(
-                    <tr className="table" key={ product.id } onClick={ (e) => this.setState({ selected: product.id }) }>{ product.nombre }</tr>
+                    
+                    <div className="table" key={ product.id } onClick={ (e) => this.setState({ selected: product.id }) }>{ product.nombre }</div>
+                   
                 );
             })
         }
@@ -27,9 +29,9 @@ class ProductList extends Component {
     render(){
         return(
             <div>
-                <table id="product-list">
-                    { this.displayProducts() }
-                </table>
+                <div id="book-list">
+                    { this.displayProduct() }
+                </div>
                 <ProductDetails productId={ this.state.selected } />
             </div>
         );
