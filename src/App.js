@@ -10,10 +10,10 @@ import ProductList from './components/ProductList';
 // Apollo Client Settings
 
 const client = new ApolloClient({
-  //uri: 'http://app-99078178-d7ca-4ac8-85c8-b1916f335575.cleverapps.io/graphql'  // cloud
+  uri: 'http://app-99078178-d7ca-4ac8-85c8-b1916f335575.cleverapps.io/graphql'  // cloud
 
   // uri: 'http://localhost:8080/graphql'  // Local
-   uri: 'http://172.22.0.3/graphql'  
+  // uri: 'http://172.22.0.3/graphql'  
    
 });
 
