@@ -2,22 +2,24 @@ import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import { getProductQuery } from '../queries/queries';
 
+
 class ProductDetails extends Component {
     displayProductsDetails(){
         const { product } = this.props.data;
         if(product){
             return(
                 <div>
-                    <h2>Producto:  { product.nombre }</h2>
-                    <p>Precio:  { product.precio }</p>
-                    <p>Plan:    { product.plan }</p>
-                    <p>Modalidad:   { product.modalidad }</p>
-                    <p>Canal:   { product.canal}</p>
-                    <p>Categoría: { product.categoryId.name}</p>
+                    <h2>Nombre: { product.nombre }</h2>
+                    <h3>Categoría: { product.categoryId.name}</h3>
+                    <h3>Precio:  { product.precio }</h3>
+                    <h3>Plan:    { product.plan }</h3>
+                    <h3>Modalidad:   { product.modalidad }</h3>
+                    <h3>Canal:   { product.canal}</h3>
+                    
                 </div>
             );
         } else {
-            return( <div>No Product selected...</div> );
+            return( <div>No se ha seleccionado ningún producto...</div> );
         }
     }
     render(){

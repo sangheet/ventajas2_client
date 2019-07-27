@@ -20,10 +20,12 @@ class ProductList extends Component {
             return data.products.map(product => {
                 return(
                     
-                    <div className="table" key={ product.id } onClick={ (e) => this.setState({ selected: product.id }) }>{ product.nombre }</div>
+            <div className="table" key={ product.id } onClick={ (e) => this.setState({ selected: product.id }) }><h4>{ product.nombre }</h4><div className="item-cat">Categoría: { product.categoryId}</div></div>
                    
-                );
-            })
+                 ); 
+           }
+           )
+            
         }
     }
     render(){

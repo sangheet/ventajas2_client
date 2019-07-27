@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { graphql, compose } from 'react-apollo';
 import { addProductMutation, getProductsQuery, getCategoriesQuery } from '../queries/queries';
+import AddCategory from './AddCategory';
 
 class AddProduct extends Component {
     constructor(props){
@@ -41,37 +42,40 @@ class AddProduct extends Component {
     }
     render(){
         return(
-            <form name="myForm" id="add-book" onSubmit={ this.submitForm.bind(this) } >
+            <div>
+            <form name="add-book" id="add-book" onSubmit={ this.submitForm.bind(this) } >
+                <h4>+  AGREGAR PRODUCTO</h4>
                 <div className="field">
                     <label>Nombre del producto:</label>
-                    <input type="text" onChange={ (e) => this.setState({ nombre: e.target.value }) } />
+                    <input required={true} name="nombre" type="text" onChange={ (e) => this.setState({ nombre: e.target.value }) } />
                 </div>
                 <div className="field">
                     <label>Precio:</label>
-                    <input type="text" onChange={ (e) => this.setState({ precio: e.target.value }) } />
+                    <input required={true} type="text" name="precio" onChange={ (e) => this.setState({ precio: e.target.value }) } />
                 </div>
                 <div className="field">
                     <label>Categoría:</label>
-                    <select onChange={ (e) => this.setState({ categoryId: e.target.value }) } >
-                        <option>Seleccione Categoría</option>
+                    <select required={true} onChange={ (e) => this.setState({ categoryId: e.target.value }) } >
+                        <option name="categoria" value="">Seleccione Categoría</option>
                         { this.displayCategories() }
                     </select>
                 </div>
                 <div className="field">
                     <label>Plan:</label>
-                    <input type="text" onChange={ (e) => this.setState({ plan: e.target.value }) } />
+                    <input name="plan" type="text" onChange={ (e) => this.setState({ plan: e.target.value }) } />
                 </div>
                 <div className="field">
                     <label>modalidad:</label>
-                    <input type="text" onChange={ (e) => this.setState({ modalidad: e.target.value }) } />
+                    <input name="modalidad" type="text" onChange={ (e) => this.setState({ modalidad: e.target.value }) } />
                 </div>
                 <div className="field">
                     <label>canal:</label>
-                    <input type="text" onChange={ (e) => this.setState({ canal: e.target.value }) } />
+                    <input name="canal" type="text" onChange={ (e) => this.setState({ canal: e.target.value }) } />
                 </div>
                
-                <button>+</button>
-            </form>
+                <button className="button">+</button>
+            </form><AddCategory /></div>
+            
         );
     }
 }

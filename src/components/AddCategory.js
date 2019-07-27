@@ -17,19 +17,22 @@ class AddCategory extends Component {
             variables: {
                 name: this.state.name,
             },
-            refetchQueries: [{query: getCategoriesQuery}]
+            refetchQueries: [{query: getCategoriesQuery}],
         });
     }
 
+
     render(){
   return (
+      <div>
     <form className="add-author" id="add-author" onSubmit={this.submitForm.bind(this)}>
-        <div className="field">
+        
+        <button>+</button><div className="field">
             <label>Nueva Categoría:</label>
-            <input type="text" onChange={(e) => this.setState({name: e.target.value})} />
+            <input required={true} type="text" onChange={(e) => this.setState({name: e.target.value})} />
         </div>
-        <button>+</button>
-    </form>
+        
+    </form></div>
   )
 }
 }
