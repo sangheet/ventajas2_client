@@ -4,7 +4,8 @@ import {ApolloProvider} from "react-apollo";
 
 // Components
 import ProductList from './components/ProductList';
- import AddProduct from './components/AddProduct';
+import Menu from './components/menu';
+import AddProduct from './components/AddProduct';
 
  // Darkmode
 /*  import Darkmode from 'darkmode-js';
@@ -46,6 +47,7 @@ function App() {
       <ProductList />
       <AddProduct />
       </div>
+      <Menu/>
     </ApolloProvider>
   );
 }
