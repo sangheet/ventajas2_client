@@ -1,12 +1,14 @@
 import {gql} from "apollo-boost";
 
-const getBooksQuery = gql`
-{
-    books{
+// Categories Queries and Mutations
+
+const addCategoryMutation = gql`
+mutation ($name: String!) {
+    addCategory(name:$name){
         name
-        id
     }
-}`
+}
+`
 const getCategoriesQuery = gql`
 {
     categories{
@@ -14,49 +16,24 @@ const getCategoriesQuery = gql`
         id
     }
 }`
-
-const getAuthorsQuery = gql`
-{
-    authors{
-        name
-        id
+const getCategoryQuery = gql`
+    query($id: ID){
+        category(id: $id){
+            id
+            name
+        }
     }
-}`
-
-const addBookMutation = gql`
-mutation ($name: String!, $genre: String!, $authorId: ID!) {
-    addBook(name:$name, genre:$genre, authorId:$authorId){
-        name
-        id
-    }
-}
 `
+
+//Add Product Queries and Mutations
+
 const addProductMutation = gql`
-mutation ($nombre: String!, $precio: String!, $categoryId: ID!, $plan: String!, $modalidad: String!, $canal: String!) {
-    addProduct(nombre:$nombre, precio:$precio, categoryId:$categoryId, plan:$plan, modalidad: $modalidad, canal:$canal){
+mutation ($nombre: String!, $precio: String!, $categoryId: ID!, $planId: ID!, $modalidad: String!, $canal: String!) {
+    addProduct(nombre:$nombre, precio:$precio, categoryId:$categoryId, planId:$planId, modalidad: $modalidad, canal:$canal){
         nombre
         id
     }
 }
-`
-
-const getBookQuery = gql`
-    query($id: ID){
-        book(id: $id){
-            id
-            name 
-            genre
-            author{
-                id
-                name 
-                age
-                books{
-                    name 
-                    id
-                }
-            }
-        }
-    }
 `
 const getProductQuery = gql`
     query($id: ID){
@@ -67,22 +44,13 @@ const getProductQuery = gql`
             categoryId{
                 id
                 name
-                products{
-                    nombre 
-                    id
                 }
+            planId{
+                 id
+                 name
                 }
-            plan
             modalidad
             canal
-        }
-    }
-`
-const getCategoryQuery = gql`
-    query($id: ID){
-        category(id: $id){
-            id
-            name
         }
     }
 `
@@ -91,24 +59,39 @@ const getProductsQuery = gql`
     products{
         nombre
         id
+        categoryId{
+            id
+            name
+        }
+        planId{
+            id
+            name
+        }
     }
 }`
+// Plan Queries and Mutations 
 
-const addAuthorMutation = gql`
-mutation ($name: String!, $age: String!) {
-    addAuthor(name:$name, age:$age){
-        name
-        age
-    }
-}
-`
-
-const addCategoryMutation = gql`
+const addPlanMutation = gql`
 mutation ($name: String!) {
-    addCategory(name:$name){
+    addPlan(name:$name){
         name
     }
 }
 `
+const getPlansQuery = gql`
+{
+   plans{
+        name
+        id
+    }
+}`
+const getPlanQuery = gql`
+    query($id: ID){
+        plan(id: $id){
+            id
+            name
+        }
+    }
+`
 
-export {getAuthorsQuery, getBooksQuery, addBookMutation, getBookQuery, addAuthorMutation, getProductQuery, getProductsQuery, addProductMutation, getCategoriesQuery, getCategoryQuery, addCategoryMutation};
+export { getProductQuery, getProductsQuery, addProductMutation, getCategoriesQuery, getCategoryQuery, addCategoryMutation, addPlanMutation, getPlansQuery, getPlanQuery};

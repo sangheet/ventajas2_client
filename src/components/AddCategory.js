@@ -27,9 +27,10 @@ class AddCategory extends Component {
       <div>
     <form className="add-author" id="add-author" onSubmit={this.submitForm.bind(this)}>
         
-        <button>+</button><div className="field">
+        
             <label>Nueva Categoría:</label>
             <input required={true} type="text" onChange={(e) => this.setState({name: e.target.value})} />
+            <button className="button-3">+</button><div className="field">
         </div>
         
     </form></div>
