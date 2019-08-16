@@ -13,16 +13,16 @@ class ProductDetails extends Component {
         if(product){
             return(
                 <div>
-                    <div className="product-title"><h2>{ product.nombre }</h2></div>
-                    <h3>Categoría: { product.categoryId.name}</h3>
-                    <h3>Precio: S/{ product.precio }</h3>
-                    <h3>Plan:    { product.planId.name }</h3>
-                    <h3>Modalidad:   { product.modalidad }</h3>
-                    <h3>Canal:   { product.canal}</h3>
+                    <div><h3 className="product-title">{ product.nombre }</h3></div>
+                    <h4>Categoría: { product.categoryId.name}</h4>
+                    <h4>Precio: S/{ product.precio }</h4>
+                    <h4>Plan:    { product.planId.name }</h4>
+                    <h4>Modalidad:   { product.modalidad }</h4>
+                    <h4>Canal:   { product.canal}</h4>
                 </div>
             );
         } else {
-            return( <div><h3>Seleccione un producto a la izquierda para ver detalles...</h3></div> );
+            return( <div><h3>Seleccione un producto para ver detalles...</h3></div> );
         }
     }
     render(){

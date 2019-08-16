@@ -37,6 +37,7 @@ mutation ($nombre: String!, $precio: String!, $categoryId: ID!, $planId: ID!, $m
 `
 const getProductQuery = gql`
     query($id: ID){
+        
         product(id: $id){
             id
             nombre

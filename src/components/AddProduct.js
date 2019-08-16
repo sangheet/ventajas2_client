@@ -84,7 +84,7 @@ class AddProduct extends Component {
             
         return(
             <div>
-            <form className="add-product-form" name="add-book" id="add-book" onSubmit={ this.submitForm.bind(this) } >
+            <form name="add-book" id="add-book" onSubmit={ this.submitForm.bind(this) } >
                 <h4>+  AGREGAR PRODUCTO</h4>
                 <div className="field">
                     <label>* Nombre:</label>
@@ -100,7 +100,7 @@ class AddProduct extends Component {
                     <select required={true} onChange={ (e) => this.setState({ categoryId: e.target.value }) } >
                         <option name="categoria" value="">Seleccione Categoría</option>
                         { this.displayCategories() }
-                    </select><span className="button-3" onClick={() => this.openModal("A")}>Agregar</span>
+                    </select>
                 </div>
                 <div className="field">
                     <label>* Plan:</label>
@@ -119,7 +119,7 @@ class AddProduct extends Component {
                 </div>
                 
                
-                <button className="button">+</button>
+                <button className="btn btn-secondary"> Agregar</button>
             </form>  
             </div>
             

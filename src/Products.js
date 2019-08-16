@@ -1,13 +1,13 @@
 import React from 'react';
 import ApolloClient from "apollo-boost";
 import {ApolloProvider} from "react-apollo";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 
 // Components
 import ProductList from './components/ProductList';
 import Menu from './components/menu';
 import BottomMenu from './components/bottomMenu';
+import CatList from "./components/CatList"
 
  // Darkmode
 /*  import Darkmode from 'darkmode-js';
@@ -40,25 +40,18 @@ const client = new ApolloClient({
 
 
 
-function App() {
+function Product() {
 
   return (
-    <Router>
     <ApolloProvider client={client}>
       <div id="main">
-        <Route path="/">
-    
-      </Route>
-      <Route path="/products" component={ProductList}>
-      
-      </Route>
-
+      <h3 className="product-title">Gestión de Productos</h3>
+      <CatList />
       <BottomMenu />
       </div>
       <Menu/>
     </ApolloProvider>
-    </Router>
   );
 }
 
-export default App;
+export default Product;

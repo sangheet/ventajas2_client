@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import { getProductsQuery } from '../queries/queries';
+import { Modal } from 'react-bootstrap';
 
 // components
 import ProductDetails from './ProductDetails';
+import AddProductModal from "./AddProductModal"
 
 class ProductList extends Component {
     constructor(props){
@@ -24,7 +26,7 @@ class ProductList extends Component {
          else {
             return data.products.map(product => {
                 return(
-            <div className="table" key={ product.id } onClick={ (e) => this.setState({ selected: product.id }) }><h4>{ product.nombre }</h4><div className="item-cat">{ product.categoryId.name}</div>                 </div>
+            <div className="item_table" key={ product.id } onClick={ (e) => this.setState({ selected: product.id }) }><h5>{ product.nombre }</h5><div className="item-cat">{ product.categoryId.name}</div>                 </div>
                    
                  ); 
            }
