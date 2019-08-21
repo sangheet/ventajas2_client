@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Modal } from 'react-bootstrap';
+
 
 // components
-import ProductDetails from './ProductDetails';
+
 import AddProductModal from "./AddProductModal"
 import AddCategoryModal from "./AddCatModal"
 

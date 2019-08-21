@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import { getProductsQuery } from '../queries/queries';
-import { Modal } from 'react-bootstrap';
+
 
 // components
 import ProductDetails from './ProductDetails';
-import AddProductModal from "./AddProductModal"
 import BotomMenu from './bottomMenu';
 
 class ProductList extends Component {

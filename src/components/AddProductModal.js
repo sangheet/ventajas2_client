@@ -1,6 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import React, { Component } from 'react';
+import React from 'react';
 import AddProduct from './AddProduct';
 
 function AddProductModal() {

@@ -1,14 +1,13 @@
 import React from 'react';
 import ApolloClient from "apollo-boost";
 import {ApolloProvider} from "react-apollo";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 
 // Components
 import ProductList from './components/ProductList';
 import Menu from './components/menu';
-import BottomMenu from './components/bottomMenu';
-import BotomMenu from './components/bottomMenu';
+import dashboard from './components/dashboard';
 
  // Darkmode
 /*  import Darkmode from 'darkmode-js';
@@ -47,14 +46,8 @@ function App() {
     <Router>
     <ApolloProvider client={client}>
       <div id="main">
-        <Route path="/">
-    
-      </Route>
-      <Route path="/products/" component={ProductList}>
-      
-      </Route>
-
-      
+      <Route path="/" component={dashboard}></Route>
+      <Route path="/products/" component={ProductList}></Route>
       </div>
       <Menu/>
     </ApolloProvider>
