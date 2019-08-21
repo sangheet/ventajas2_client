@@ -1,9 +1,27 @@
 import React, { Component } from 'react';
-import { graphql } from 'react-apollo';
-import { getProductQuery } from '../queries/queries';
+import { graphql, compose } from 'react-apollo';
+import { getProductsQuery, getProductQuery, removeProductMutation } from '../queries/queries';
 
 
 class ProductDetails extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            id: ""
+        };
+
+    }
+
+    submitForm(e){
+        e.preventDefault()
+        this.props.removeProductMutation({
+            variables: {
+                id: this.state.id
+            },
+            refetchQueries: [{ query: getProductsQuery }],
+        });
+    }
+
     displayProductsDetails(){
         var data = this.props.data;
         const { product } = this.props.data;
@@ -25,10 +43,18 @@ class ProductDetails extends Component {
             return( <div><h3>Seleccione un producto para ver detalles...</h3></div> );
         }
     }
+    deleteProducts(){
+        const { product } = this.props.data;
+        if(product){
+            return(
+                <div key={ product.id }><form onSubmit={ this.submitForm.bind(this) }><button>Eliminar Producto ({product.id})</button></form></div>
+                     ); 
+    }}
     render(){
         return(
             <div id="product-details">
                 { this.displayProductsDetails() }
+                { this.deleteProducts() }
             </div>
         );
     }
@@ -42,4 +68,15 @@ export default graphql(getProductQuery, {
             }
         }
     }
-})(ProductDetails);
+},
+removeProductMutation, {
+    options: (props) => {
+        return {
+            variables: {
+                id: props.productId
+            }
+        }
+    }
+})(ProductDetails,removeProductMutation);
+
+

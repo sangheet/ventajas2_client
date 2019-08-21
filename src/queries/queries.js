@@ -35,6 +35,13 @@ mutation ($nombre: String!, $precio: String!, $categoryId: ID!, $planId: ID!, $m
     }
 }
 `
+const removeProductMutation = gql`
+mutation ($id: ID!) {
+    removeProduct(id:$id){
+        id
+    }
+}
+`
 const getProductQuery = gql`
     query($id: ID){
         
@@ -95,4 +102,4 @@ const getPlanQuery = gql`
     }
 `
 
-export { getProductQuery, getProductsQuery, addProductMutation, getCategoriesQuery, getCategoryQuery, addCategoryMutation, addPlanMutation, getPlansQuery, getPlanQuery};
+export { removeProductMutation, getProductQuery, getProductsQuery, addProductMutation, getCategoriesQuery, getCategoryQuery, addCategoryMutation, addPlanMutation, getPlansQuery, getPlanQuery};

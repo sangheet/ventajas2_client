@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import ProductList from './components/ProductList';
 import Menu from './components/menu';
 import BottomMenu from './components/bottomMenu';
+import BotomMenu from './components/bottomMenu';
 
  // Darkmode
 /*  import Darkmode from 'darkmode-js';
@@ -49,11 +50,11 @@ function App() {
         <Route path="/">
     
       </Route>
-      <Route path="/products" component={ProductList}>
+      <Route path="/products/" component={ProductList}>
       
       </Route>
 
-      <BottomMenu />
+      
       </div>
       <Menu/>
     </ApolloProvider>

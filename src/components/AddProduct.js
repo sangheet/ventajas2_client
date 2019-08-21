@@ -5,8 +5,7 @@ import { addProductMutation, getProductsQuery, getCategoriesQuery, getPlansQuery
 
 
 // components
-import CatList from "./CatList";
-import AddCategory from "./AddCategory";
+
 
 
 

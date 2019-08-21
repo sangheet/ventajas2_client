@@ -6,6 +6,7 @@ import { Modal } from 'react-bootstrap';
 // components
 import ProductDetails from './ProductDetails';
 import AddProductModal from "./AddProductModal"
+import BotomMenu from './bottomMenu';
 
 class ProductList extends Component {
     constructor(props){
@@ -40,11 +41,11 @@ class ProductList extends Component {
             <div>
 
                 <div id="book-list">
-                  
+                  <h3 className="product-title">Gestión de Productos</h3>
                     { this.displayProduct() }
                 </div>
                 <ProductDetails productId={ this.state.selected } />
-            </div>
+            <BotomMenu/></div>
         );
     }
 }
