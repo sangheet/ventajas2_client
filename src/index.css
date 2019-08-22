@@ -541,11 +541,11 @@ form select, form input{
 .botom_menu{
   width: 80%;
   padding: 15px 15px 15px 15px;
-  height: 15px;
+  height: 150px;
   background: #943D71;
   border-radius: 20px 20px 0 0;
   position: fixed;
-  bottom: 0;
+  bottom: -110px;
   transition: all 0.5s;
   transition-delay: 1s;
   column-count: 3;
@@ -554,7 +554,6 @@ form select, form input{
 .botom_menu:hover{
   width: 80%;
   padding: 15px;
-  height: 150px;
   background: #ebe9e9;
   border-radius: 20px 20px 0 0;
   position: fixed;
