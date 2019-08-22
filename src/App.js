@@ -10,7 +10,7 @@ import Menu from './components/menu';
 import dashboard from './components/dashboard';
 
  // Darkmode
-/*  import Darkmode from 'darkmode-js';
+/*   import Darkmode from 'darkmode-js';
 
  var options = {
   bottom: '30px', // default: '32px'
@@ -27,7 +27,7 @@ import dashboard from './components/dashboard';
 }
 
 const darkmode = new Darkmode(options);
-darkmode.showWidget(); */
+darkmode.showWidget();  */
 
 
 // Apollo Client Settings
@@ -46,7 +46,7 @@ function App() {
     <Router>
     <ApolloProvider client={client}>
       <div id="main">
-      <Route path="/" component={dashboard}></Route>
+      <Route path="/dashboard/" component={dashboard}></Route>
       <Route path="/products/" component={ProductList}></Route>
       </div>
       <Menu/>

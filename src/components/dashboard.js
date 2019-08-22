@@ -4,8 +4,8 @@ import { getProductsQuery } from '../queries/queries';
 
 
 // components
-import ProductDetails from './ProductDetails';
-import BotomMenu from './bottomMenu';
+// import ProductDetails from './ProductDetails';
+// import BotomMenu from './bottomMenu';
 
 class Dashboard extends Component {
     constructor(props){

@@ -7,6 +7,7 @@ import { getProductsQuery } from '../queries/queries';
 import ProductDetails from './ProductDetails';
 import BotomMenu from './bottomMenu';
 
+
 class ProductList extends Component {
     constructor(props){
         super(props);
@@ -39,7 +40,7 @@ class ProductList extends Component {
         return(
             <div>
 
-                <div id="book-list">
+                <div id="product-list">
                   <h3 className="product-title">Gestión de Productos</h3>
                     { this.displayProduct() }
                 </div>
